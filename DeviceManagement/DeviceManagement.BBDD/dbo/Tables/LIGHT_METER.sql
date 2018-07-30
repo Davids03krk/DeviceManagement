@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[LIGHT_METER] (
+    [IdDevice] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdDevice] ASC),
+    CONSTRAINT [FK_LIGHTMETER_DEVICE] FOREIGN KEY ([IdDevice]) REFERENCES [dbo].[DEVICE] ([IdDevice])
+);
+
