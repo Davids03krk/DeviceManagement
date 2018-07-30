@@ -2,3 +2,10 @@
 *.suo
 *.refactorlog
 *.mdf
+*.dll
+*.dacpac
+*.jfm
+*.dbmdl
+DeviceManagement/DeviceManagement.BBDD/obj/Debug/DeviceManagement.BBDD.sqlprojAssemblyReference.cache
+DeviceManagement/DeviceManagement.BBDD/obj/Debug/DeviceManagement.BBDD.sqlproj.FileListAbsolute.txt
+*.pdb
