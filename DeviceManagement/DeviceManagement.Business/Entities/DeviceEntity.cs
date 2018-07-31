@@ -1,4 +1,5 @@
 ﻿using DeviceManagement.Data;
+using System.Linq;
 
 namespace DeviceManagement.Business.Entities
 {
@@ -37,6 +38,20 @@ namespace DeviceManagement.Business.Entities
 
         #region Internal Methods 
 
+        internal int GetNextId()
+        {
+            using (var dbContext = new DeviceManagementEntities())
+            {
+                var dbDevice = dbContext.DEVICE.OrderByDescending(x => x.IdDevice).FirstOrDefault();
+
+                if (dbDevice == null)
+                    return 1;
+
+                return dbDevice.IdDevice + 1;
+            }
+        }
+
+
         /// <summary>
         /// Method that maps a device to the database model.
         /// </summary>
@@ -45,7 +60,7 @@ namespace DeviceManagement.Business.Entities
         {
             var dbDevice = new DEVICE
             {
-                IdDevice = IdDevice,
+                IdDevice = GetNextId(),
                 SerialNumber = SerialNumber,
                 Brand = Brand,
                 Model = Model,

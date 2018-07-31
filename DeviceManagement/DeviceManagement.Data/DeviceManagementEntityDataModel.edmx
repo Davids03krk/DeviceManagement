@@ -4,15 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DeviceManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DeviceManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DEVICE">
           <Key>
             <PropertyRef Name="IdDevice" />
           </Key>
           <Property Name="IdDevice" Type="int" Nullable="false" />
-          <Property Name="SerialNumber" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Brand" Type="nchar" MaxLength="10" />
-          <Property Name="Model" Type="nchar" MaxLength="10" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="100" />
+          <Property Name="Model" Type="nvarchar" MaxLength="100" />
           <Property Name="IdDeviceType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="DEVICE_TYPE">
@@ -113,8 +113,7 @@
             <End Role="WATER_METER" EntitySet="WATER_METER" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DeviceManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -123,9 +122,9 @@
             <PropertyRef Name="IdDevice" />
           </Key>
           <Property Name="IdDevice" Type="Int32" Nullable="false" />
-          <Property Name="SerialNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdDeviceType" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DEVICE_TYPE" Relationship="Self.FK_DEVICE_DEVICETYPE" FromRole="DEVICE" ToRole="DEVICE_TYPE" />
           <NavigationProperty Name="GATEWAY" Relationship="Self.FK_GATEWAY_DEVICE" FromRole="DEVICE" ToRole="GATEWAY" />
