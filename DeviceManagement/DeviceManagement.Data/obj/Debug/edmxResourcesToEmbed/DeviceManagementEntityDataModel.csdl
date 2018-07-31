@@ -5,9 +5,9 @@
       <PropertyRef Name="IdDevice" />
     </Key>
     <Property Name="IdDevice" Type="Int32" Nullable="false" />
-    <Property Name="SerialNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SerialNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="IdDeviceType" Type="Int32" Nullable="false" />
     <NavigationProperty Name="DEVICE_TYPE" Relationship="Self.FK_DEVICE_DEVICETYPE" FromRole="DEVICE" ToRole="DEVICE_TYPE" />
     <NavigationProperty Name="GATEWAY" Relationship="Self.FK_GATEWAY_DEVICE" FromRole="DEVICE" ToRole="GATEWAY" />

@@ -61,13 +61,12 @@ namespace DeviceManagement.ApplicationConsole
                         break;
                 }
 
-                Console.Write("\n\n\n\tPress Y if you want to insert a new device...");
-                insertOther = Console.ReadLine() == "Y" || Console.ReadLine() == "y";
+                Console.Write("\n\n\n\tPress Y if you want to insert a new device:");
+                string opc = Console.ReadLine().ToString();
+                insertOther = opc == "Y" || opc == "y";
+                Console.Write("\n\n\n");
 
             } while (insertOther);
-
-            Console.Write("\n\n\n\tPress any key to finish...");
-            Console.ReadLine();
         }
         
         private static Enumerators.DeviceTypes InsertTypeDevice()

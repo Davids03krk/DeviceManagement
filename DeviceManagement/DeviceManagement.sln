@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagement.Data", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagement.ApplicationConsole", "DeviceManagement.ApplicationConsole\DeviceManagement.ApplicationConsole.csproj", "{AABE319B-6C33-47EC-96EE-5EE6DA35C044}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DeviceManagement.BBDD", "DeviceManagement.BBDD\DeviceManagement.BBDD\DeviceManagement.BBDD.sqlproj", "{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{AABE319B-6C33-47EC-96EE-5EE6DA35C044}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AABE319B-6C33-47EC-96EE-5EE6DA35C044}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AABE319B-6C33-47EC-96EE-5EE6DA35C044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12DD4FF8-8459-4F99-AECF-FA8FC1F603DE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

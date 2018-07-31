@@ -1,0 +1,84 @@
+31/07/2018 18:39:39	This log contains information about the import schema operation into project 'DeviceManagement.BBDD' on computer 'DESKTOP-IKARG49' by user 'David'.
+31/07/2018 18:39:40	Import of database schema has started.
+31/07/2018 18:39:45	Gathering database credentials
+31/07/2018 18:39:45	Gathering database options
+31/07/2018 18:39:45	Gathering users
+31/07/2018 18:39:45	Gathering roles
+31/07/2018 18:39:45	Gathering application roles
+31/07/2018 18:39:45	Gathering role memberships
+31/07/2018 18:39:45	Gathering filegroups
+31/07/2018 18:39:45	Gathering full-text catalogs
+31/07/2018 18:39:45	Gathering assemblies
+31/07/2018 18:39:45	Gathering certificates
+31/07/2018 18:39:45	Gathering asymmetric keys
+31/07/2018 18:39:45	Gathering symmetric keys
+31/07/2018 18:39:45	Gathering encrypted symmetric keys
+31/07/2018 18:39:45	Gathering schemas
+31/07/2018 18:39:45	Gathering XML schema collections
+31/07/2018 18:39:45	Gathering user-defined data types
+31/07/2018 18:39:45	Gathering user-defined types
+31/07/2018 18:39:45	Gathering table types
+31/07/2018 18:39:45	Gathering unique keys for table types
+31/07/2018 18:39:45	Gathering primary keys for table types
+31/07/2018 18:39:45	Gathering indexes for table types
+31/07/2018 18:39:45	Gathering check constraints for table types
+31/07/2018 18:39:45	Gathering default constraints for table types
+31/07/2018 18:39:45	Gathering partition functions
+31/07/2018 18:39:45	Gathering partition schemes
+31/07/2018 18:39:45	Gathering functions
+31/07/2018 18:39:45	Gathering encrypted functions
+31/07/2018 18:39:45	Gathering aggregates
+31/07/2018 18:39:45	Gathering procedures
+31/07/2018 18:39:45	Gathering encrypted procedures
+31/07/2018 18:39:46	Gathering tables
+31/07/2018 18:39:46	Gathering primary keys
+31/07/2018 18:39:46	Gathering unique constraints
+31/07/2018 18:39:46	Gathering foreign keys
+31/07/2018 18:39:46	Gathering default constraints
+31/07/2018 18:39:46	Gathering check constraints
+31/07/2018 18:39:46	Gathering views
+31/07/2018 18:39:46	Gathering encrypted views
+31/07/2018 18:39:46	Gathering indexes
+31/07/2018 18:39:46	Gathering statistics
+31/07/2018 18:39:46	Gathering full-text index stoplists
+31/07/2018 18:39:46	Gathering search property lists
+31/07/2018 18:39:46	Gathering search properties
+31/07/2018 18:39:46	Gathering full-text indexes
+31/07/2018 18:39:46	Gathering column store indexes
+31/07/2018 18:39:46	Gathering spatial indexes
+31/07/2018 18:39:46	Gathering XML indexes
+31/07/2018 18:39:46	Gathering Selective XML indexes
+31/07/2018 18:39:46	Gathering encrypted triggers
+31/07/2018 18:39:46	Gathering triggers
+31/07/2018 18:39:46	Gathering encrypted and clr ddl triggers
+31/07/2018 18:39:46	Gathering ddl triggers
+31/07/2018 18:39:46	Gathering synonyms
+31/07/2018 18:39:46	Gathering defaults
+31/07/2018 18:39:46	Gathering data constraint uddt bindings
+31/07/2018 18:39:46	Gathering rules
+31/07/2018 18:39:46	Gathering data constraint uddt bindings
+31/07/2018 18:39:46	Gathering message types
+31/07/2018 18:39:46	Gathering queues
+31/07/2018 18:39:46	Gathering contracts
+31/07/2018 18:39:46	Gathering services
+31/07/2018 18:39:46	Gathering event notifications
+31/07/2018 18:39:46	Gathering remote service bindings
+31/07/2018 18:39:46	Gathering broker priorities
+31/07/2018 18:39:46	Gathering signatures
+31/07/2018 18:39:46	Gathering data compression options
+31/07/2018 18:39:46	Gathering sequence types
+31/07/2018 18:39:46	Gathering security policies
+31/07/2018 18:39:46	Gather column encryption keys
+31/07/2018 18:39:46	Gathering column master keys
+31/07/2018 18:39:46	Gathering external data sources
+31/07/2018 18:39:46	Gathering external file formats
+31/07/2018 18:39:46	Gathering external tables
+31/07/2018 18:39:46	Gathering extended properties
+31/07/2018 18:39:46	Gathering credentials
+31/07/2018 18:39:46	Gathering logins
+31/07/2018 18:39:46	Gathering server audits
+31/07/2018 18:39:48	Scanning project for duplicate elements
+31/07/2018 18:39:49	Finished duplicate element processing
+31/07/2018 18:39:49	Finished importing database.
+31/07/2018 18:39:49	A summary of the import was saved to the following location: E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.BBDD\DeviceManagement.BBDD\Import Schema Logs\DeviceManagement.BBD_20180731043939.log
+31/07/2018 18:39:49	Click Finish to continue...

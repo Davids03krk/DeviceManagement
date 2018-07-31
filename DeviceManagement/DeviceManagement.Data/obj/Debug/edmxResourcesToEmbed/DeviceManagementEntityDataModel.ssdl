@@ -5,9 +5,9 @@
       <PropertyRef Name="IdDevice" />
     </Key>
     <Property Name="IdDevice" Type="int" Nullable="false" />
-    <Property Name="SerialNumber" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Brand" Type="nchar" MaxLength="10" />
-    <Property Name="Model" Type="nchar" MaxLength="10" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="100" />
+    <Property Name="Model" Type="nvarchar" MaxLength="100" />
     <Property Name="IdDeviceType" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DEVICE_TYPE">
