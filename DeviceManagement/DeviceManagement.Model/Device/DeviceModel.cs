@@ -27,7 +27,7 @@ namespace DeviceManagement.Model.Device
         {
             var deviceModel = new DeviceModel()
             {
-                IdDevice = (int)deviceEntity.IdDevice,
+                IdDevice = deviceEntity.IdDevice,
                 SerialNumber = deviceEntity.SerialNumber,
                 Brand = deviceEntity.Brand,
                 Model = deviceEntity.Model,
