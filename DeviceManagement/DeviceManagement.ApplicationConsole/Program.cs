@@ -13,55 +13,62 @@ namespace DeviceManagement.ApplicationConsole
 
             do
             {
-                var device = new DeviceModel()
+                try
                 {
-                    TypeDeviceValue = InsertTypeDevice(),
-                    SerialNumber = InsertSerialNumber(),
-                    Brand = InsertBrand(),
-                    Model = InsertModel()
-                };
+                    var device = new DeviceModel()
+                    {
+                        TypeDeviceValue = InsertTypeDevice(),
+                        SerialNumber = InsertSerialNumber(),
+                        Brand = InsertBrand(),
+                        Model = InsertModel()
+                    };
 
-                int idDevice = DeviceEntity.Create(device.ToEntities());
+                    int idDevice = DeviceEntity.Create(device.ToEntities());
 
-                switch (device.TypeDeviceValue)
-                {
-                    case Enumerators.DeviceTypes.WATER_METER:
-                        var waterMeter = new WaterMeterModel()
-                        {
-                            IdDevice = idDevice,
-                            TypeDevice = device.TypeDeviceValue
-                        };
+                    switch (device.TypeDeviceValue)
+                    {
+                        case Enumerators.DeviceTypes.WATER_METER:
+                            var waterMeter = new WaterMeterModel()
+                            {
+                                IdDevice = idDevice,
+                                TypeDevice = device.TypeDeviceValue
+                            };
 
-                        WaterMeterEntity.Create(waterMeter.ToEntities());
+                            WaterMeterEntity.Create(waterMeter.ToEntities());
 
-                        break;
-                    case Enumerators.DeviceTypes.LIGHT_METER:
-                        var lightMeter = new LightMeterModel()
-                        {
-                            IdDevice = idDevice,
-                            TypeDevice = device.TypeDeviceValue
-                        };
+                            break;
+                        case Enumerators.DeviceTypes.LIGHT_METER:
+                            var lightMeter = new LightMeterModel()
+                            {
+                                IdDevice = idDevice,
+                                TypeDevice = device.TypeDeviceValue
+                            };
 
-                        LightMeterEntity.Create(lightMeter.ToEntities());
+                            LightMeterEntity.Create(lightMeter.ToEntities());
 
-                        break;
-                    case Enumerators.DeviceTypes.GATEWAY:
-                        var gateway = new GatewayModel()
-                        {
-                            IdDevice = idDevice,
-                            TypeDevice = device.TypeDeviceValue,
-                            Ip = InsertIp(),
-                            Port = InsertPort()
-                        };
+                            break;
+                        case Enumerators.DeviceTypes.GATEWAY:
+                            var gateway = new GatewayModel()
+                            {
+                                IdDevice = idDevice,
+                                TypeDevice = device.TypeDeviceValue,
+                                Ip = InsertIp(),
+                                Port = InsertPort()
+                            };
 
-                        GatewayEntity.Create(gateway.ToEntities());
+                            GatewayEntity.Create(gateway.ToEntities());
 
-                        break;
-                    default:
-                        break;
+                            break;
+                        default:
+                            break;
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("\n\n\t" + ex.Message + ". Review the entered data");
+                }                
 
-                Console.Write("\n\n\n\tPress Y if you want to insert a new device:");
+                Console.Write("\n\n\n\tPress Y if you want to insert a new device: ");
                 string opc = Console.ReadLine().ToString();
                 insertOther = opc == "Y" || opc == "y";
                 Console.Write("\n\n\n");

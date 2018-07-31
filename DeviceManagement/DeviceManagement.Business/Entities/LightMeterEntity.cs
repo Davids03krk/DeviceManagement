@@ -1,4 +1,5 @@
 ﻿using DeviceManagement.Data;
+using System;
 using System.Linq;
 
 namespace DeviceManagement.Business.Entities
@@ -37,30 +38,26 @@ namespace DeviceManagement.Business.Entities
         /// <param name="lightMeterEntity"></param>
         public static void Create(LightMeterEntity lightMeterEntity)
         {
-            using (var dbContext = new DeviceManagementEntities())
+            try
             {
-                var dbLightMeter = lightMeterEntity.MapToBD();
+                using (var dbContext = new DeviceManagementEntities())
+                {
+                    var dbLightMeter = lightMeterEntity.MapToBD();
 
-                dbContext.LIGHT_METER.Add(dbLightMeter);
-                dbContext.SaveChanges();
+                    dbContext.LIGHT_METER.Add(dbLightMeter);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceEntity.Delete(lightMeterEntity.IdDevice);
+                throw new Exception("Error.There was a problem when inserting data from a light meter in the database");
             }
         }
 
         #endregion
 
         #region Internal Methods 
-
-        ///// <summary>
-        ///// Method that returns if the current device exists in the database.
-        ///// </summary>
-        ///// <returns></returns>
-        internal bool Exist()
-        {
-            using (var dbContext = new DeviceManagementEntities())
-            {
-                return dbContext.DEVICE.Any(x => x.IdDevice == IdDevice);
-            }
-        }
 
         /// <summary>
         /// Method that maps a device of type light meter to the database model.

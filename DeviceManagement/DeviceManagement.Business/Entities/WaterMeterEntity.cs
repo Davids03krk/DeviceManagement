@@ -1,4 +1,5 @@
 ﻿using DeviceManagement.Data;
+using System;
 using System.Linq;
 
 namespace DeviceManagement.Business.Entities
@@ -37,30 +38,26 @@ namespace DeviceManagement.Business.Entities
         /// <param name="waterMeterEntity"></param>
         public static void Create(WaterMeterEntity waterMeterEntity)
         {
-            using (var dbContext = new DeviceManagementEntities())
+            try
             {
-                var dbWaterMeter = waterMeterEntity.MapToBD();
+                using (var dbContext = new DeviceManagementEntities())
+                {
+                    var dbWaterMeter = waterMeterEntity.MapToBD();
 
-                dbContext.WATER_METER.Add(dbWaterMeter);
-                dbContext.SaveChanges();
+                    dbContext.WATER_METER.Add(dbWaterMeter);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceEntity.Delete(waterMeterEntity.IdDevice);
+                throw new Exception("Error.There was a problem when inserting data from a water meter in the database");
             }
         }
 
         #endregion
 
-        #region Internal Methods 
-
-        ///// <summary>
-        ///// Method that returns if the current device exists in the database.
-        ///// </summary>
-        ///// <returns></returns>
-        internal bool Exist()
-        {
-            using (var dbContext = new DeviceManagementEntities())
-            {
-                return dbContext.DEVICE.Any(x => x.IdDevice == IdDevice);
-            }
-        }
+        #region Internal Methods }
 
         /// <summary>
         /// Method that maps a device of type water meter to the database model.

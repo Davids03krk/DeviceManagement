@@ -1,4 +1,5 @@
 ﻿using DeviceManagement.Data;
+using System;
 using System.Linq;
 
 namespace DeviceManagement.Business.Entities
@@ -39,30 +40,26 @@ namespace DeviceManagement.Business.Entities
         /// <param name="gatewayEntity"></param>
         public static void Create(GatewayEntity gatewayEntity)
         {
-            using (var dbContext = new DeviceManagementEntities())
+            try
             {
-                var dbGateway = gatewayEntity.MapToBD();
+                using (var dbContext = new DeviceManagementEntities())
+                {
+                    var dbGateway = gatewayEntity.MapToBD();
 
-                dbContext.GATEWAY.Add(dbGateway);
-                dbContext.SaveChanges();
+                    dbContext.GATEWAY.Add(dbGateway);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceEntity.Delete(gatewayEntity.IdDevice);
+                throw new Exception("Error.There was a problem when inserting data from a gateway in the database");
             }
         }
 
         #endregion
 
         #region Internal Methods 
-
-        ///// <summary>
-        ///// Method that returns if the current device exists in the database.
-        ///// </summary>
-        ///// <returns></returns>
-        internal bool Exist()
-        {
-            using (var dbContext = new DeviceManagementEntities())
-            {
-                return dbContext.DEVICE.Any(x => x.IdDevice == IdDevice);
-            }
-        }
 
         /// <summary>
         /// Method that maps a device of type gateway to the database model.

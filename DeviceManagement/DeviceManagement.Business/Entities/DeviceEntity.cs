@@ -1,4 +1,5 @@
 ﻿using DeviceManagement.Data;
+using System;
 using System.Linq;
 
 namespace DeviceManagement.Business.Entities
@@ -23,14 +24,38 @@ namespace DeviceManagement.Business.Entities
         /// <param name="deviceEntity"></param>
         public static int Create(DeviceEntity deviceEntity)
         {
+            try
+            {
+                using (var dbContext = new DeviceManagementEntities())
+                {
+                    var dbDevice = deviceEntity.MapToBD();
+
+                    dbContext.DEVICE.Add(dbDevice);
+                    dbContext.SaveChanges();
+
+                    return dbDevice.IdDevice;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error. There was a problem when inserting data from a device into a database");
+            }
+        }
+
+        /// <summary>
+        /// Method that removes of database the current device.
+        /// </summary>
+        public static void Delete(int IdDevice)
+        {
             using (var dbContext = new DeviceManagementEntities())
             {
-                var dbDevice = deviceEntity.MapToBD();
+                var dbDevice = dbContext.DEVICE.Find(IdDevice);
 
-                dbContext.DEVICE.Add(dbDevice);
+                if (dbDevice == null)
+                    throw new Exception("Error. There was a problem deleting the " + dbDevice.ToString() + "device from the database");
+
+                dbContext.DEVICE.Remove(dbDevice);
                 dbContext.SaveChanges();
-
-                return dbDevice.IdDevice;
             }
         }
 
