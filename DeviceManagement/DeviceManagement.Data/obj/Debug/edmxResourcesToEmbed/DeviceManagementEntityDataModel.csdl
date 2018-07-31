@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DeviceManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DEVICE">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="Int32" Nullable="false" />
+    <Property Name="SerialNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IdDeviceType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DEVICE_TYPE" Relationship="Self.FK_DEVICE_DEVICETYPE" FromRole="DEVICE" ToRole="DEVICE_TYPE" />
+    <NavigationProperty Name="GATEWAY" Relationship="Self.FK_GATEWAY_DEVICE" FromRole="DEVICE" ToRole="GATEWAY" />
+    <NavigationProperty Name="LIGHT_METER" Relationship="Self.FK_LIGHTMETER_DEVICE" FromRole="DEVICE" ToRole="LIGHT_METER" />
+    <NavigationProperty Name="WATER_METER" Relationship="Self.FK_WATERMETER_DEVICE" FromRole="DEVICE" ToRole="WATER_METER" />
+  </EntityType>
+  <EntityType Name="DEVICE_TYPE">
+    <Key>
+      <PropertyRef Name="IdDeviceType" />
+    </Key>
+    <Property Name="IdDeviceType" Type="Int32" Nullable="false" />
+    <Property Name="DeviceType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DEVICE" Relationship="Self.FK_DEVICE_DEVICETYPE" FromRole="DEVICE_TYPE" ToRole="DEVICE" />
+  </EntityType>
+  <EntityType Name="GATEWAY">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="Int32" Nullable="false" />
+    <Property Name="Ip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Port" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DEVICE" Relationship="Self.FK_GATEWAY_DEVICE" FromRole="GATEWAY" ToRole="DEVICE" />
+  </EntityType>
+  <EntityType Name="LIGHT_METER">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DEVICE" Relationship="Self.FK_LIGHTMETER_DEVICE" FromRole="LIGHT_METER" ToRole="DEVICE" />
+  </EntityType>
+  <EntityType Name="WATER_METER">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DEVICE" Relationship="Self.FK_WATERMETER_DEVICE" FromRole="WATER_METER" ToRole="DEVICE" />
+  </EntityType>
+  <Association Name="FK_DEVICE_DEVICETYPE">
+    <End Role="DEVICE_TYPE" Type="Self.DEVICE_TYPE" Multiplicity="1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE_TYPE">
+        <PropertyRef Name="IdDeviceType" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="IdDeviceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GATEWAY_DEVICE">
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="1" />
+    <End Role="GATEWAY" Type="Self.GATEWAY" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE">
+        <PropertyRef Name="IdDevice" />
+      </Principal>
+      <Dependent Role="GATEWAY">
+        <PropertyRef Name="IdDevice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LIGHTMETER_DEVICE">
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="1" />
+    <End Role="LIGHT_METER" Type="Self.LIGHT_METER" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE">
+        <PropertyRef Name="IdDevice" />
+      </Principal>
+      <Dependent Role="LIGHT_METER">
+        <PropertyRef Name="IdDevice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WATERMETER_DEVICE">
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="1" />
+    <End Role="WATER_METER" Type="Self.WATER_METER" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE">
+        <PropertyRef Name="IdDevice" />
+      </Principal>
+      <Dependent Role="WATER_METER">
+        <PropertyRef Name="IdDevice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DeviceManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DEVICE" EntityType="Self.DEVICE" />
+    <EntitySet Name="DEVICE_TYPE" EntityType="Self.DEVICE_TYPE" />
+    <EntitySet Name="GATEWAY" EntityType="Self.GATEWAY" />
+    <EntitySet Name="LIGHT_METER" EntityType="Self.LIGHT_METER" />
+    <EntitySet Name="WATER_METER" EntityType="Self.WATER_METER" />
+    <AssociationSet Name="FK_DEVICE_DEVICETYPE" Association="Self.FK_DEVICE_DEVICETYPE">
+      <End Role="DEVICE_TYPE" EntitySet="DEVICE_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GATEWAY_DEVICE" Association="Self.FK_GATEWAY_DEVICE">
+      <End Role="DEVICE" EntitySet="DEVICE" />
+      <End Role="GATEWAY" EntitySet="GATEWAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LIGHTMETER_DEVICE" Association="Self.FK_LIGHTMETER_DEVICE">
+      <End Role="DEVICE" EntitySet="DEVICE" />
+      <End Role="LIGHT_METER" EntitySet="LIGHT_METER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WATERMETER_DEVICE" Association="Self.FK_WATERMETER_DEVICE">
+      <End Role="DEVICE" EntitySet="DEVICE" />
+      <End Role="WATER_METER" EntitySet="WATER_METER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd0c8601301b44f19c19af7cc5397f55" Name="Diagram1">
+        <EntityTypeShape EntityType="DeviceManagementModel.DEVICE" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceManagementModel.DEVICE_TYPE" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceManagementModel.GATEWAY" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceManagementModel.LIGHT_METER" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeviceManagementModel.WATER_METER" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="DeviceManagementModel.FK_DEVICE_DEVICETYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="DeviceManagementModel.FK_GATEWAY_DEVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="DeviceManagementModel.FK_LIGHTMETER_DEVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="DeviceManagementModel.FK_WATERMETER_DEVICE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DeviceManagementModelStoreContainer" CdmEntityContainer="DeviceManagementEntities">
+    <EntitySetMapping Name="DEVICE">
+      <EntityTypeMapping TypeName="DeviceManagementModel.DEVICE">
+        <MappingFragment StoreEntitySet="DEVICE">
+          <ScalarProperty Name="IdDevice" ColumnName="IdDevice" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="IdDeviceType" ColumnName="IdDeviceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICE_TYPE">
+      <EntityTypeMapping TypeName="DeviceManagementModel.DEVICE_TYPE">
+        <MappingFragment StoreEntitySet="DEVICE_TYPE">
+          <ScalarProperty Name="IdDeviceType" ColumnName="IdDeviceType" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GATEWAY">
+      <EntityTypeMapping TypeName="DeviceManagementModel.GATEWAY">
+        <MappingFragment StoreEntitySet="GATEWAY">
+          <ScalarProperty Name="IdDevice" ColumnName="IdDevice" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIGHT_METER">
+      <EntityTypeMapping TypeName="DeviceManagementModel.LIGHT_METER">
+        <MappingFragment StoreEntitySet="LIGHT_METER">
+          <ScalarProperty Name="IdDevice" ColumnName="IdDevice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WATER_METER">
+      <EntityTypeMapping TypeName="DeviceManagementModel.WATER_METER">
+        <MappingFragment StoreEntitySet="WATER_METER">
+          <ScalarProperty Name="IdDevice" ColumnName="IdDevice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

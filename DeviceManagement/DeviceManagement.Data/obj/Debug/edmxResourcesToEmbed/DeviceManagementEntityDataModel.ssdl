@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DeviceManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEVICE">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="int" Nullable="false" />
+    <Property Name="SerialNumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Brand" Type="nchar" MaxLength="10" />
+    <Property Name="Model" Type="nchar" MaxLength="10" />
+    <Property Name="IdDeviceType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEVICE_TYPE">
+    <Key>
+      <PropertyRef Name="IdDeviceType" />
+    </Key>
+    <Property Name="IdDeviceType" Type="int" Nullable="false" />
+    <Property Name="DeviceType" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GATEWAY">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="int" Nullable="false" />
+    <Property Name="Ip" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Port" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="LIGHT_METER">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WATER_METER">
+    <Key>
+      <PropertyRef Name="IdDevice" />
+    </Key>
+    <Property Name="IdDevice" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DEVICE_DEVICETYPE">
+    <End Role="DEVICE_TYPE" Type="Self.DEVICE_TYPE" Multiplicity="1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE_TYPE">
+        <PropertyRef Name="IdDeviceType" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="IdDeviceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GATEWAY_DEVICE">
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="1" />
+    <End Role="GATEWAY" Type="Self.GATEWAY" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE">
+        <PropertyRef Name="IdDevice" />
+      </Principal>
+      <Dependent Role="GATEWAY">
+        <PropertyRef Name="IdDevice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LIGHTMETER_DEVICE">
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="1" />
+    <End Role="LIGHT_METER" Type="Self.LIGHT_METER" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE">
+        <PropertyRef Name="IdDevice" />
+      </Principal>
+      <Dependent Role="LIGHT_METER">
+        <PropertyRef Name="IdDevice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WATERMETER_DEVICE">
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="1" />
+    <End Role="WATER_METER" Type="Self.WATER_METER" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE">
+        <PropertyRef Name="IdDevice" />
+      </Principal>
+      <Dependent Role="WATER_METER">
+        <PropertyRef Name="IdDevice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DeviceManagementModelStoreContainer">
+    <EntitySet Name="DEVICE" EntityType="Self.DEVICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEVICE_TYPE" EntityType="Self.DEVICE_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GATEWAY" EntityType="Self.GATEWAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LIGHT_METER" EntityType="Self.LIGHT_METER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WATER_METER" EntityType="Self.WATER_METER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DEVICE_DEVICETYPE" Association="Self.FK_DEVICE_DEVICETYPE">
+      <End Role="DEVICE_TYPE" EntitySet="DEVICE_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GATEWAY_DEVICE" Association="Self.FK_GATEWAY_DEVICE">
+      <End Role="DEVICE" EntitySet="DEVICE" />
+      <End Role="GATEWAY" EntitySet="GATEWAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LIGHTMETER_DEVICE" Association="Self.FK_LIGHTMETER_DEVICE">
+      <End Role="DEVICE" EntitySet="DEVICE" />
+      <End Role="LIGHT_METER" EntitySet="LIGHT_METER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WATERMETER_DEVICE" Association="Self.FK_WATERMETER_DEVICE">
+      <End Role="DEVICE" EntitySet="DEVICE" />
+      <End Role="WATER_METER" EntitySet="WATER_METER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

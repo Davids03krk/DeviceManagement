@@ -1,0 +1,14 @@
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Model.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Model.pdb
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Business.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Data.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\EntityFramework.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Business.pdb
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Data.pdb
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\DeviceManagement.Data.dll.config
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\bin\Debug\EntityFramework.xml
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\obj\Debug\DeviceManagement.Model.csprojAssemblyReference.cache
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\obj\Debug\DeviceManagement.Model.csproj.CoreCompileInputs.cache
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\obj\Debug\DeviceManagement.Model.csproj.CopyComplete
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\obj\Debug\DeviceManagement.Model.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Model\obj\Debug\DeviceManagement.Model.pdb

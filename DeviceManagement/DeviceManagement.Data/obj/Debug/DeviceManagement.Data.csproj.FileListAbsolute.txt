@@ -1,0 +1,10 @@
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\bin\Debug\DeviceManagement.Data.dll.config
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\bin\Debug\DeviceManagement.Data.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\bin\Debug\DeviceManagement.Data.pdb
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\bin\Debug\EntityFramework.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\bin\Debug\EntityFramework.xml
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\obj\Debug\DeviceManagement.Data.csprojAssemblyReference.cache
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\obj\Debug\DeviceManagement.Data.csproj.CoreCompileInputs.cache
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\obj\Debug\DeviceManagement.Data.csproj.CopyComplete
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\obj\Debug\DeviceManagement.Data.dll
+E:\Proyectos\GIT\DeviceManagement\DeviceManagement\DeviceManagement.Data\obj\Debug\DeviceManagement.Data.pdb

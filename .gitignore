@@ -10,3 +10,7 @@ DeviceManagement/DeviceManagement.BBDD/obj/Debug/DeviceManagement.BBDD.sqlprojAs
 DeviceManagement/DeviceManagement.BBDD/obj/Debug/DeviceManagement.BBDD.sqlproj.FileListAbsolute.txt
 *.pdb
 /DeviceManagement/DeviceManagement.BBDD/obj/Debug/Model.xml
+*.ide-wal
+*.ide-shm
+*.ide
+*.lock
