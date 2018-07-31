@@ -1,4 +1,6 @@
-﻿using DeviceManagement.Data;
+﻿using System;
+using System.Linq;
+using DeviceManagement.Data;
 
 namespace DeviceManagement.Business.Entities
 {
@@ -6,7 +8,7 @@ namespace DeviceManagement.Business.Entities
     {
         #region Attributes
 
-        public int IdDevice { get; set; }
+        public int? IdDevice { get; set; }
         public string SerialNumber { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
@@ -20,7 +22,7 @@ namespace DeviceManagement.Business.Entities
         /// Method that adds to the database the past device as a parameter.
         /// </summary>
         /// <param name="deviceEntity"></param>
-        public static void Create(DeviceEntity deviceEntity)
+        public static int Create(DeviceEntity deviceEntity)
         {
             using (var dbContext = new DeviceManagementEntities())
             {
@@ -29,7 +31,7 @@ namespace DeviceManagement.Business.Entities
                 dbContext.DEVICE.Add(dbDevice);
                 dbContext.SaveChanges();
 
-                deviceEntity.IdDevice = dbDevice.IdDevice;
+                return dbDevice.IdDevice;
             }
         }
 
@@ -45,7 +47,7 @@ namespace DeviceManagement.Business.Entities
         {
             var dbDevice = new DEVICE
             {
-                IdDevice = IdDevice,
+                IdDevice = GetNextId(),
                 SerialNumber = SerialNumber,
                 Brand = Brand,
                 Model = Model,
@@ -53,6 +55,19 @@ namespace DeviceManagement.Business.Entities
             };
 
             return dbDevice;
+        }
+
+        internal int GetNextId()
+        {
+            using (var dbContext = new DeviceManagementEntities())
+            {
+                var dbDevice = dbContext.DEVICE.OrderByDescending(x => x.IdDevice).FirstOrDefault();
+
+                if (dbDevice == null)
+                    return 1;
+
+                return dbDevice.IdDevice + 1;
+            }
         }
 
         /// <summary>
