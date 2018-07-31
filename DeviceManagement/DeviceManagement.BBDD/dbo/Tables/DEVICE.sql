@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[DEVICE] (
     [IdDevice]     INT        NOT NULL,
-    [SerialNumber] NCHAR (10) NOT NULL,
+    [SerialNumber] NVARCHAR(100) NOT NULL,
     [Brand]        NCHAR (10) NULL,
     [Model]        NCHAR (10) NULL,
     [IdDeviceType] INT        NOT NULL,

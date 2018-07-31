@@ -20,7 +20,7 @@ namespace DeviceManagement.Business.Entities
         /// Method that adds to the database the past device as a parameter.
         /// </summary>
         /// <param name="deviceEntity"></param>
-        public static void Create(DeviceEntity deviceEntity)
+        public static int Create(DeviceEntity deviceEntity)
         {
             using (var dbContext = new DeviceManagementEntities())
             {
@@ -29,7 +29,7 @@ namespace DeviceManagement.Business.Entities
                 dbContext.DEVICE.Add(dbDevice);
                 dbContext.SaveChanges();
 
-                deviceEntity.IdDevice = dbDevice.IdDevice;
+                return dbDevice.IdDevice;
             }
         }
 
